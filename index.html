@@ -125,83 +125,77 @@
                                     <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path>
                                     <circle cx="12" cy="9.5" r="2.5"></circle>
                                 </svg>
-                                <input type="text" id="location" name="location" placeholder="City, neighborhood or ZIP"
+                                <input type="text" id="location" name="location" placeholder="Pahrump, Nevada"
                                     aria-label="Location" autocomplete="off">
                             </div>
-                            <button type="submit" class="search-btn">Search</button>
+                            <button type="submit" class="search-btn" href="#contact">Search</button>
                         </div>
 
-                        <div class="filters">
-                            <fieldset class="filter-group group-wide">
-                                <legend class="filter-label">Property type</legend>
-                                <div class="choices">
-                                    <label class="choice"><input type="radio" name="type" value=""
-                                            checked><span>Any</span></label>
-                                    <label class="choice"><input type="radio" name="type"
-                                            value="house"><span>House</span></label>
-                                    <label class="choice"><input type="radio" name="type"
-                                            value="condo"><span>Condo</span></label>
-                                    <label class="choice"><input type="radio" name="type"
-                                            value="townhome"><span>Townhome</span></label>
-                                    <label class="choice"><input type="radio" name="type"
-                                            value="land"><span>Land</span></label>
-                                </div>
-                            </fieldset>
+                        <div class="filters"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; align-items: end;">
+                            <div class="filter-group" style="margin-bottom: 0;">
+                                <label class="filter-label" for="propertyType"
+                                    style="font-size: 0.8rem; margin-bottom: 4px; display: block;">Property type</label>
+                                <select id="propertyType" name="type" class="form-select form-select-sm"
+                                    style="width: 100%;">
+                                    <option value="" selected>Any</option>
+                                    <option value="house">House</option>
+                                    <option value="condo">Condo</option>
+                                    <option value="townhome">Townhome</option>
+                                    <option value="land">Land</option>
+                                </select>
+                            </div>
 
-                            <fieldset class="filter-group">
-                                <legend class="filter-label">Bedrooms</legend>
-                                <div class="choices">
-                                    <label class="choice"><input type="radio" name="beds" value=""
-                                            checked><span>Any</span></label>
-                                    <label class="choice"><input type="radio" name="beds"
-                                            value="1"><span>1+</span></label>
-                                    <label class="choice"><input type="radio" name="beds"
-                                            value="2"><span>2+</span></label>
-                                    <label class="choice"><input type="radio" name="beds"
-                                            value="3"><span>3+</span></label>
-                                    <label class="choice"><input type="radio" name="beds"
-                                            value="4"><span>4+</span></label>
-                                    <label class="choice"><input type="radio" name="beds"
-                                            value="5"><span>5+</span></label>
-                                </div>
-                            </fieldset>
+                            <div class="filter-group" style="margin-bottom: 0;">
+                                <label class="filter-label" for="bedrooms"
+                                    style="font-size: 0.8rem; margin-bottom: 4px; display: block;">Bedrooms</label>
+                                <select id="bedrooms" name="beds" class="form-select form-select-sm"
+                                    style="width: 100%;">
+                                    <option value="" selected>Any</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
 
-                            <fieldset class="filter-group">
-                                <legend class="filter-label">Bathrooms</legend>
-                                <div class="choices">
-                                    <label class="choice"><input type="radio" name="baths" value=""
-                                            checked><span>Any</span></label>
-                                    <label class="choice"><input type="radio" name="baths"
-                                            value="1"><span>1+</span></label>
-                                    <label class="choice"><input type="radio" name="baths"
-                                            value="2"><span>2+</span></label>
-                                    <label class="choice"><input type="radio" name="baths"
-                                            value="3"><span>3+</span></label>
-                                    <label class="choice"><input type="radio" name="baths"
-                                            value="4"><span>4+</span></label>
-                                </div>
-                            </fieldset>
+                            <div class="filter-group" style="margin-bottom: 0;">
+                                <label class="filter-label" for="bathrooms"
+                                    style="font-size: 0.8rem; margin-bottom: 4px; display: block;">Bathrooms</label>
+                                <select id="bathrooms" name="baths" class="form-select form-select-sm"
+                                    style="width: 100%;">
+                                    <option value="" selected>Any</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
 
-                            <fieldset class="filter-group group-wide">
-                                <legend class="filter-label">Price range</legend>
-                                <div class="price-row">
-                                    <label class="money">
-                                        <span aria-hidden="true">$</span>
+                            <div class="filter-group" style="margin-bottom: 0; grid-column: span 2;">
+                                <label class="filter-label"
+                                    style="font-size: 0.8rem; margin-bottom: 4px; display: block;">Price range</label>
+                                <div class="price-row" style="display: flex; align-items: center; gap: 6px;">
+                                    <label class="money" style="flex: 1; margin-bottom: 0;">
                                         <input type="text" id="minPrice" name="minPrice" inputmode="numeric"
-                                            placeholder="No min" aria-label="Minimum price" autocomplete="off">
+                                            placeholder="Min $" aria-label="Minimum price" autocomplete="off"
+                                            class="form-control form-control-sm">
                                     </label>
-                                    <span class="dash" aria-hidden="true">to</span>
-                                    <label class="money">
-                                        <span aria-hidden="true">$</span>
+                                    <span class="dash" aria-hidden="true">-</span>
+                                    <label class="money" style="flex: 1; margin-bottom: 0;">
                                         <input type="text" id="maxPrice" name="maxPrice" inputmode="numeric"
-                                            placeholder="No max" aria-label="Maximum price" autocomplete="off">
+                                            placeholder="Max $" aria-label="Maximum price" autocomplete="off"
+                                            class="form-control form-control-sm">
                                     </label>
                                 </div>
-                            </fieldset>
+                            </div>
                         </div>
 
-                        <div class="form-foot">
-                            <button type="reset" class="reset-link">Reset filters</button>
+                        <div class="form-foot" style="margin-top: 12px; display: flex; justify-content: flex-end;">
+                            <button type="reset" class="reset-link"
+                                style="font-size: 0.85rem; background: none; border: none; text-decoration: underline; cursor: pointer;">Reset
+                                filters</button>
                         </div>
                     </form>
                 </div>
@@ -330,7 +324,6 @@
             </div>
         </section>
 
-        <!-- OUR SERVICES -->
         <section class="services" id="services">
             <div class="container">
                 <h2 class="block-title block-title-light">Our Services</h2>
@@ -367,7 +360,6 @@
             </div>
         </section>
 
-        <!-- CONTACT OR VISIT US -->
         <section class="contact" id="contact">
             <div class="container">
                 <h2 class="block-title block-title-light">Contact Or Visit Us</h2>
@@ -421,8 +413,6 @@
             </div>
         </section>
 
-
-        <!-- MAP / THE AREA -->
         <section class="map-section" id="location">
             <div class="container">
                 <div class="map-card">
@@ -445,7 +435,6 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -529,7 +518,6 @@
     <script>
         var form = document.getElementById('searchForm');
 
-        // Add commas to the price fields as the visitor types
         ['minPrice', 'maxPrice'].forEach(function (id) {
             document.getElementById(id).addEventListener('input', function () {
                 var digits = this.value.replace(/\D/g, '');

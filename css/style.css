@@ -529,6 +529,7 @@ a {
 }
 
 .search-title {
+  text-align: center !important;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: clamp(1.4rem, 2.6vw, 1.7rem);
@@ -1899,8 +1900,8 @@ button:focus-visible {
 }
 
 #cMessage {
-    resize: none;
-    overflow-y: auto;
+  resize: none;
+  overflow-y: auto;
 }
 
 @media (max-width: 767.98px) {
@@ -1977,5 +1978,37 @@ button:focus-visible {
 
   .hero-chevron {
     animation: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .filters {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .filter-group {
+    width: 100% !important;
+    grid-column: auto !important;
+  }
+
+  .filter-group select.form-select {
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 0.95rem !important;
+    padding: 0 1rem !important;
+    border-radius: 999px !important;
+    background-color: var(--field) !important;
+    border: 1px solid transparent !important;
+  }
+
+  .price-row {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .money input {
+    height: 48px !important;
   }
 }

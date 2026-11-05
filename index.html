@@ -8,6 +8,8 @@
         content="Marci Metzger Homes. The Ridge Realty Group. Helping buyers and sellers in Southern Nevada.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="img/hero-bg.png">
+    <link rel="preload" as="image" href="img/logo-white.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -16,6 +18,67 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css'>
     <link href="css/style.css" rel="stylesheet">
     <title>Marci Metzger Homes - Real Estate Agent</title>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('gate');
+
+            var sources = ['img/hero-bg.png', 'img/logo-white.png'];
+            var pending = sources.length + 1;
+            var introStarted = false;
+            var revealed = false;
+
+            function revealContent() {
+                if (revealed) return;
+                revealed = true;
+                root.classList.remove('gate');
+            }
+
+            function startIntro() {
+                if (introStarted) return;
+                introStarted = true;
+                root.classList.add('logo-in');
+
+                var reduceMotion = window.matchMedia &&
+                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (reduceMotion) {
+                    revealContent();
+                    return;
+                }
+
+                var logo = document.querySelector('.logo-img');
+                if (logo) {
+                    logo.addEventListener('animationend', function (e) {
+                        if (e.animationName === 'logoReveal') revealContent();
+                    });
+                }
+                setTimeout(revealContent, 3000);
+            }
+
+            function done() {
+                pending--;
+                if (pending <= 0) startIntro();
+            }
+
+            sources.forEach(function (src) {
+                var img = new Image();
+                img.onload = done;
+                img.onerror = done;
+                img.src = src;
+            });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', done);
+            } else {
+                done();
+            }
+            setTimeout(function () {
+                if (document.readyState !== 'loading') startIntro();
+                else document.addEventListener('DOMContentLoaded', startIntro);
+            }, 6000);
+        })();
+    </script>
 </head>
 
 <body>
@@ -224,7 +287,7 @@
                                 <span class="new-title">$1,275,000</span>
                                 <span class="new-text">3 bd3 bth2,456 sq. ft.
                                     4190 N Equus Court, Pahrump, NV</span>
-                                    
+
                             </figcaption>
                         </a>
                     </figure>
